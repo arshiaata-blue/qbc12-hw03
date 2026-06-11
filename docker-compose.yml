@@ -1,0 +1,11 @@
+services:
+  airbnb-serving:
+    image: qbc12-airbnb-serving:optimized
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    command: python -m uvicorn airbnb_serving.app:app --host 0.0.0.0 --port 8000
